@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevAnalytics // Command Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">DevDash⚡</div>
+            <nav class="nav-links">
+                <a href="#" class="active" data-page="dashboard">Dashboard</a>
+                <a href="#" data-page="users">User Management</a>
+                <a href="#" data-page="settings">Settings</a>
+            </nav>
+            <div class="theme-toggle-wrapper">
+                <button id="theme-toggle">🌙 Dark Mode</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search Recent Transactions by Status...">
+                </div>
+                <div class="user-profile">
+                    <span id="welcome-msg">Welcome, Developer</span>
+                    <button id="logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+            </header>
+
+            <section id="dashboard-view" class="view-section">
+                <div class="stats-grid">
+                    <div class="stat-card" data-metric="revenue">
+                        <h3>Active Revenue</h3>
+                        <p class="stat-value">$45,231.89</p>
+                        <span class="stat-change positive">+20.1% from last month</span>
+                    </div>
+                    <div class="stat-card" data-metric="subscriptions">
+                        <h3>Subscriptions</h3>
+                        <p class="stat-value">+2,350</p>
+                        <span class="stat-change positive">+180.1% from last month</span>
+                    </div>
+                    <div class="stat-card" data-metric="active-now">
+                        <h3>Active Now</h3>
+                        <p class="stat-value" id="active-users-counter">573</p>
+                        <span class="stat-change pulse">● Live tracking</span>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <h2>Recent Transactions</h2>
+                        <div class="card-actions">
+                            <select id="filter-status" class="form-control">
+                                <option value="all">All Statuses</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                            <button id="refresh-data-btn" class="btn btn-primary">Refresh Data</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Status</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transaction-table-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal">
+            <h2 id="modal-title">Transaction Details</h2>
+            <div id="modal-content" class="modal-body">
+                </div>
+            <button id="close-modal-btn" class="btn btn-secondary">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
